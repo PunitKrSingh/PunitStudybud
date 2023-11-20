@@ -1,0 +1,29 @@
+{% extends "main.html" %} <!-- Extend a base template if you have one -->
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">OTP Verification</div>
+
+                    <div class="card-body">
+                        
+                        <p>Enter the OTP code sent to your email to verify your account.</p>
+                        <hr>
+                        <form method="POST">
+                          {% csrf_token %}
+                          <div class="form-group ">
+                            <label for="otp_code">OTP Code</label>
+                            <input type="text" class="form-control" id="otp_code" name="otp_code" required>
+                          </div>
+                          <button  type="submit" class="btn btn-primary ">Verify OTP</button>
+                        </form>
+                        <!-- You can add additional content here -->
+                        {% comment %} <a href="{% url 'resend' %}" class="btn btn--link">Resend Otp</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+{% endblock %}
